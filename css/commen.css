@@ -1,0 +1,168 @@
+/**
+ * Created by Administrator on 2018/01/08. name='dadou_bw'
+ */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body,
+html{
+    padding-top: 21px;
+    font: 12px/1.5 "\5FAE\8F6F\96C5\9ED1";
+    background-color: #eaeaea;
+}
+body{
+    width:50%;
+    height:100px;
+    overflow: scroll;
+    scrollbar-base-color:#ff0000;
+    scrollbar-face-color:#507CD1;
+    scrollbar-track-color:#F4F1EC;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-weight: normal;
+    font-style: normal;
+}
+li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+a{
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+em,i{
+    font-size: inherit;
+}
+.sp, .dot a,
+.ul-news i,
+.ul-event em,
+.link-entry i,
+.slide-info i,
+.act-box .link i,
+.ul-ver span,
+.ul-event span label,
+.ul-event b,
+.ul-event i,
+.ul-level p i,
+.ul-level label {
+    background: url(../images/sp.png) no-repeat;
+}
+.clear{
+    zoom: 1;
+}
+.ost_BFB,
+.ost_czsh a,
+.ost_loglnk,
+.ost_loglnk:hover,
+.ost_mlnk:hover,
+.ost_pl,
+.ost_pmlnk,
+.ost_pmlnk:hover,
+.ost_reglnk {
+    text-decoration: none;
+}
+.clear:after {
+    clear: both;
+}
+
+.clear:before,
+.clear:after {
+    content: "";
+    display: table;
+}
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+.center{
+    text-align:center;
+}
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+i,
+cite,
+var,
+address,
+dfn {
+    font-style: italic;
+}
+.ost_bn,
+.ost_box {
+    min-width: 980px;
+    text-align: left;
+}
+.ost_big,
+.ost_bni,
+.ost_h40,
+.ost_hdn,
+.ost_ico,
+.ost_msgnum,
+.ost_pin {
+    overflow: hidden;
+}
+.fixed {
+    position:fixed;
+    top:0;
+    left:0;
+}
+#gotop{
+    background: url(../images/sp.png) no-repeat;
+    background-position:0 -397px ;
+}
+.gotop{
+    position: fixed;
+    right:-35px;
+    margin-bottom: 20px;
+    margin-left: 660px;
+    bottom: 185px;
+    padding: 110px 16px 0 0;
+    width: 80px;
+    height: 25px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+    display: none;
+}
+input{
+    outline: none;
+}
+

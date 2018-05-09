@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="text/html" />
+    <title>疾风之刃-官方网站-腾讯游戏</title>
+    <link rel="icon" href="images/favico/favicon.ico" sizes="32x32" type="image/ico">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <style>
+        *{
+         margin: 0;
+            padding: 0;
+        }
+        .r{
+            float: right;
+        }
+        .l{
+            float: left;
+        }
+        #body{
+            background-color: #fff;
+        }
+        input{
+            outline: none;
+        }
+       .wrap_login{
+           width: 600px;
+           height: 400px;
+           left:50%;
+           top:50%;
+           margin: -184px 0 0 -311px;
+           position:fixed;
+           background-color: #fff;
+       }
+       .login_box{
+           width: 500px;
+           background: #FFFFFF;
+           margin: 10px auto;
+       }
+       .login_title{
+           font-size: 25px;
+           text-align: center;
+           color: #FF7F50;
+           padding: 15px 0;
+           width: 300px;
+           margin: 0 auto;
+           border-bottom: solid 1px #CCCCCC;
+       }
+       .form_text_ipt{
+           width: 300px;
+           height: 40px;
+           border: solid 1px #CCCCCC;
+           margin: 20px auto 0 auto;
+           background: #FFFFFF;
+       }
+       .form_check_ipt{
+           width: 300px;
+           margin:  10px auto;
+           overflow: hidden;
+       }
+       .form_text_ipt input{
+           position: relative;
+           width: 260px;
+           height: 30px;
+           margin: 5px;
+           border: none;
+           font-family: "微软雅黑";
+           font-size: 15px;
+           color: #666;
+       }
+       .check_left label{
+           cursor: pointer;
+       }
+       .check_left label input{
+           position: relative;
+           top: 2px;
+       }
+       .form_btn{
+           width: 300px;
+           height: 40px;
+           margin:  10px auto;
+       }
+       .form_btn button{
+           width: 100%;
+           height: 100%;
+           border: none;
+           color: #FFFFFF;
+           font-size: 14px;
+           background: #FF7F50;
+           cursor: pointer;
+       }
+       .form_reg_btn{
+           width: 300px;
+           margin: 0 auto;
+           font-size: 14px;
+           color: #666;
+       }
+       .other_login{
+           overflow: hidden;
+           width: 300px;
+           height: 80px;
+           line-height: 80px;
+           margin: 0 auto;
+       }
+       .other_left{
+           font-size: 14px;
+           color: #999;
+       }
+
+       .other_right a{
+           margin:5px;
+           color:#636363;
+       }
+
+       .other_right a:hover{
+           color:#AEEEEE;
+       }
+        #dd,#ds{
+            display: inline-block;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            margin-left: -5px;
+            font:inherit;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 600;
+            color: #0f0;
+        }
+    </style>
+</head>
+<body id="body">
+<div class="wrap_login">
+    <div class="login_box">
+
+        <div class="login_form">
+            <div class="login_title">
+                登录
+            </div>
+            <form action="#" method="post">
+                <div class="form_text_ipt">
+                    <input name="username" id="user" type="text" placeholder="手机号/邮箱不能为空">
+                    <i class="fs" id="dd"></i>
+                </div>
+                <div class="form_text_ipt">
+                    <input name="password" id="pas" type="password" placeholder="只能输入6-20个字母、数字、下划线">
+               <i class="fs" id="ds"></i>
+                </div>
+                <div class="form_check_ipt">
+                    <div class="l check_left">
+                        <label><input name="" type="checkbox"> 下次自动登录</label>
+                    </div>
+                    <div class="r check_right">
+                        <a href="#">忘记密码</a>
+                    </div>
+                </div>
+                <div class="form_btn">
+                    <button type="button">登录</button>
+                </div>
+                <div class="form_reg_btn">
+                    <span>还没有帐号？</span><a href="">马上注册</a>
+                </div>
+            </form>
+            <div class="other_login">
+                <div class="l other_left">
+                    <span>其它登录方式</span>
+                </div>
+                <div class="r other_right">
+                    <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                    <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                    <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var inp = document.getElementById('user');
+    var pas=document.getElementById('pas');
+    var dd=inp.nextElementSibling;
+    var ds=pas.nextElementSibling;
+    inp.addEventListener("blur",fn1);
+    pas.addEventListener("blur",fn2);
+    function fn2(){
+        if(this.value == ""){
+            return;
+        }
+        var ret = /^(\w){6,20}$/;
+        if(ret.test(pas.value)){
+            ds.innerHTML="ok"
+        }else {
+            ds.innerHTML="<dd style='color: #ff0000'>no</dd>"
+        }
+    }
+    function fn1(){
+        if(this.value == ""){
+            return;
+        }
+        var reg = /^\w+\@+[0-9a-zA-Z]+\.(com|com.cn|edu|hk|cn|net)$/;
+        if(reg.test(inp.value)){
+            dd.innerHTML="ok"
+        }else {
+            dd.innerHTML="<dd style='color: #ff0000'>no</dd>"
+        }
+    }
+</script>
+</body>
+</html>

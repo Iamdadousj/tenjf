@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html" charset="UTF-8"/>
+    <title>疾风之刃-官方网站-腾讯游戏</title>
+    <link rel="icon" href="images/favico/favicon.ico" sizes="32x32" type="image/ico">
+    <link rel="stylesheet" href="css/commen.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body  onselectstart="return false">
+
+<!--top_bar-->
+<div class="ost_box ost_bg pa" id="ost_box" >
+    <ul class="ost_inner ost_lsn">
+        <li class="ost_logo ost_h40 l ost_bg">
+            <a class="ost_blnk ost_hdn" href=""></a>
+        </li>
+        <li id="ost_g" class="ost_ad ost_h40 l">
+            <img class="ost_nb" id="ost_go" src="images/ost_bg2.jpg" alt="" style="display: block;">
+            <div id="ost_d" class="ost_big" style="display: none;">
+                <a href="" target="_blank">
+                    <img class="ost_nb" src="images/ost_bg2_1.jpg" width="970" height="185" alt="">
+                </a>
+            </div>
+        </li>
+        <li class="ost_total ost_ml10 r">
+            <h3 class="ost_czsh ost_h40">
+                <a target="_blank" href="">成长守护平台</a>
+            </h3>
+            <h3 class="ost_title ost_h40" id="ost_t">腾讯游戏排行榜
+                <i class="ost_icon_arrow ost_bg"></i>
+                <sup class="ost_icon_reddot" id="ost_rank_v"></sup>
+
+                <div class="ost_pop" id="ost_p" style="display: none;">
+                    <iframe src="iframe.html" id="topFrame" name="topFrame" width="700" height="465" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </h3>
+        </li>
+        <li class="r ost_log ost_bg" id="ost_log"></li>
+    </ul>
+</div>
+
+<!--模态框-->
+<div id="modal-overlay">
+    <div class="modal-data">
+        <p><a onclick="overlay()" class="r" href="#">X</a></p>
+        <iframe src="login.html" id="login_fdl" name="login_fdl" width="700" height="465" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div>
+
+<!--wrap-->
+<div class="wrap">
+
+    <!--container__mode--start-->
+    <div class="container" style="width: 1024px;">
+
+        <!--jf背景-->
+        <div class="header pr">
+            <a class="logo db pa" href="" title="疾风之刃">疾风之刃</a>
+            <div class="ckxq" id="ckxq">
+                <a href=""   style="width: 219px; height: 55px; top: 500px; left: 399px;">查看版本</a>
+            </div>
+            <ul class="ul-nav clear pa">
+                <li>
+                    <a class="cap" href="javascript:void(0);">最新资讯</a>
+                    <a href="">官方新闻</a>
+                    <a href="">更新公告</a>
+                    <a href="">活动中心</a>
+                    <a href="#version">当前版本</a>
+                    <a href="" >疾风情报站</a>
+                </li>
+                <li>
+                    <a class="cap" href="javascript:void(0);">游戏介绍</a>
+                    <a href="">游戏特色</a>
+                    <a href="">新手指南</a>
+                    <a href="">职业介绍</a>
+                    <a href="">世界观</a>
+                    <a href="">超动作体验站</a>
+                </li>
+                <li>
+                    <a class="cap" href="javascript:;">游戏资料</a>
+                    <a href="">视频中心</a>
+                    <a href="">攻略专区</a>
+                    <a href="">同名漫画</a>
+                    <a href="">音乐壁纸</a>
+                    <a href="">疾风圈</a>
+                </li>
+                <li>
+                    <a class="cap" href="javascript:;">玩家互动</a>
+                    <a href="">官方论坛</a>
+                    <a href="">兴趣部落</a>
+                    <a href="">公会宣传</a>
+                    <a href="">疾风荣誉殿堂</a>
+                </li>
+                <li>
+                    <a class="cap" href="javascript:;">自助服务</a>
+                    <a href="">游戏下载</a>
+                    <a href="">充值服务</a>
+                    <a href="">封号查询</a>
+                    <a href="">CDKey兑换</a>
+                    <a href="">游戏锁</a>
+                </li>
+                <li>
+                    <a class="cap" href="" >疾风客服</a>
+                    <a href="">在线客服</a>
+                    <a href="">疾风急救箱</a>
+                    <a href="">体验反馈</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--正文-->
+        <div class="content clear">
+
+            <!--slideleft__mode--start-->
+            <div class="part-index-left clear l">
+                <div class="part-dl pr l">
+                    <div class="bg pa">
+                        <a href="" class="btn-download sp pa"></a>
+                        <a href="" class="btn-feature sp pa"></a>
+                        <a href="" class="btn-welfare sp pa"></a>
+                        <a href="" class="btn-beback sp pa"></a>
+                    </div>
+                    <!--down__mode--end-->
+                </div>
+                <div class="part-login pr l">
+                    <div class="login">
+                        <!--登录前状态 Start-->
+                        <div id="unlogin" style="display: block;">
+                            <a class="btn-login sp pa" id="dologin" href="#" onclick="overlay()"></a>
+                        </div>
+                        <!--登录前状态 End-->
+                        <!--登录后状态 Start-->
+                        <div id="logined" style="display: none;">
+                            <ul class="ul-user clear pa">
+                                <li>角色名：
+                                    <span name="charac_name"></span>
+                                </li>
+                                <li>战斗力：
+                                    <span name="fight"></span>
+                                </li>
+                                <li>等级：
+                                    <span name="level"></span>
+                                </li>
+                                <li>个人中心更多功能</li>
+                            </ul>
+                            <a class="btn-logout sp pa" id="dologout" href="javascript:void(0);" ></a>
+                        </div>
+                        <!--登录后状态 End-->
+                    </div>
+                    <a class="btn-helper sp pa" href="" ></a>
+                    <a class="btn-center sp pa" href="" ></a>
+                </div>
+                <!--login__mode--end-->
+                <div class="part-entry part-bg pr l">
+                    <p class="part-title">
+                        <b>快速入口</b>
+                        / QUICK ENTRY</p>
+                    <div class="link-entry clear pa">
+                        <a class="i1" href=""><i></i>福利中心</a>
+                        <a class="i2" href=""><i></i>点券充值</a>
+                        <a class="i3" href=""><i></i>新手指南</a>
+                        <a class="i4" href=""><i></i>CDKey兑换</a>
+                        <a class="i5" href=""><i></i>活动中心</a>
+                        <a class="i6" href=""><i></i>道聚城</a>
+                        <a class="i7" href=""><i></i>封号查询</a>
+                        <a class="i8" href=""><i></i>在线客服</a>
+                    </div>
+                </div>
+                <!--QUICK ENTRY__mode--end-->
+                <div class="part-slide part-bg pr l">
+                    <!-- 疾风资料 -->
+                    <div class="slide-info">
+                        <p class="slide-title">疾风资料</p>
+                        <a href=""><i></i>职业介绍</a>
+                        <a href=""><i></i>新手指南</a>
+                        <a href=""><i></i>副本介绍</a>
+                        <p class="slide-title">疾风圈</p>
+                        <a href=""><i></i>视频中心</a>
+                        <a href=""><i></i>玩家攻略</a>
+                        <a href=""><i></i>漫画美图</a>
+                    </div>
+                    <!-- 商城热卖推荐 -->
+                    <p class="slide-title">商城热卖推荐</p>
+                    <a class="btn-mall" href="#">
+                        <img width="253" height="136" src="images/mall.jpg" ></a>
+                    <!-- 部落贴吧图标 -->
+                    <div class="slide-link clear">
+                        <a class="i1" href=""><i class="sp"></i>QQ部落</a>
+                        <a class="i2" href=""><i class="sp"></i>疾风贴吧</a>
+                        <a class="i3" href=""><i class="sp"></i>点亮图标</a>
+                    </div>
+                    <!-- 微信 -->
+                    <p class="slide-wx clear" id="pif">
+                        <a class="on" href="javascript:void(0);">疾风助手</a> |
+                        <a href="javascript:void(0);">官方微信</a>
+                    </p>
+                    <p class="slide-qrcode" id="tab_f">
+                        <img class="on" src="images/qrcode-helper.jpg">
+                        <img src="images/qrcode.jpg">
+                    </p>
+                    <!-- 合作平台 -->
+                    <p class="part-title"><b>合作平台</b> / COOPERATION PLATFORM</p>
+                    <div class="slide-select pr" id="slide-vs">
+                        <a class="btn-select pr" href="javascript:;">
+                            <span>合作媒体网站</span>
+                            <i class="sp pa"></i>
+                        </a>
+                        <p class="lst-select pa">
+                            <a href="">17173</a>
+                            <a href="">多玩</a>
+                            <a href="">COLG</a>
+                            <a href="">766</a>
+                            <a href="">电玩巴士</a>
+                            <a href="">52PK</a>
+                            <a href="">太平洋</a>
+                            <a href="">超级玩家</a>
+                            <a href="">爱拍</a>
+                            <a href="">5652</a>
+                            <a href="">178</a>
+                            <a href="">acfun</a>
+                            <a href="">腾讯文学</a>
+                            <a href="">叶子猪</a>
+                        </p>
+                    </div>
+                </div>
+                <!--资料——mode--end-->
+            </div>
+
+              <!--table-->
+            <div class="part-inner-right part-bg r">
+                <div class="part-inner-title pr">
+                    <b>游戏下载</b> / DOWNLOAD
+                    <p class="part-border"></p>
+                    <p class="place pa">
+                        您的位置：
+                        <a href="index.html" target="_parent">首页</a>
+                        &gt; 游戏下载
+                    </p>
+                </div>
+
+                <div class="part-download">
+                    <div class="part-downinc">
+                        <h3 class="downH3">最新版完整客户端下载</h3>
+                        <div class="downInfo">
+                            <p class="line">
+                                <span class="doInSp">当前版本：v1.5.093.3</span>
+                                <span>大小：6G</span>
+                            </p>
+                            <p>
+                                <span class="doInSp">更新日期：2017-12-12</span>
+                                MD5码：<span>1a08b15500280db4a7906d03ed7faee2</span>
+                            </p>
+                            <p class="downBtn">
+                            <a href="" class="l btn dh down1" >专属下载器下载</a>
+                            <a href="" class="l btn dh down2" >极速下载器下载</a>
+                            </p>
+                        </div>
+
+                        <!--客户端下载结束-->
+
+                        <div class="down-tip clear">
+                            <p class="down-title">当前版本小TIPS</p>
+                            <a class="sp" href="#">版本专区</a>
+                            <a class="sp" href="#">当前版本职业情况</a>
+                        </div>
+                        <h3 class="downH3">最新补丁下载</h3>
+                        <div class="downDet">
+                            <table class="tab">
+                           <tbody>
+                                <tr>
+                                    <th class="talL">版本</th>
+                                    <th class="">文件大小</th>
+                                    <th class="">更新日期</th>
+                                    <th class="">适用版本</th>
+                                    <th class="talR">下载链接</th>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.093.3</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2017-12-12</td>
+                                    <td>v1.5.081.3</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.072.2</td>
+                                    <td class="">3447M</td>
+                                    <td class="">2017-10-19</td>
+                                    <td>v1.5.063.6</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.053.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2017-09-07</td>
+                                    <td>v1.5.043.1</td>
+                                    <td class="talR">
+                                        <a href="" target="_blank" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.014.2</td>
+                                    <td class="">500M</td>
+                                    <td class="">2017-07-06</td>
+                                    <td>v1.5.003.2</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.003.2</td>
+                                    <td class="">1069M</td>
+                                    <td class="">2017-06-22</td>
+                                    <td>v1.4.193.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.173.4</td>
+                                    <td class="">300.4M</td>
+                                    <td class="">2017-05-12</td>
+                                    <td>v1.4.165.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.144.1</td>
+                                    <td class="">1404M</td>
+                                    <td class="">2017-03-16</td>
+                                    <td>v1.4.135.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.133.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2017-02-16</td>
+                                    <td>v1.4.126.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.122.1</td>
+                                    <td class="">3403M</td>
+                                    <td class="">2017-01-17</td>
+                                    <td>v1.4.119.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.113.2</td>
+                                    <td class="">1028M</td>
+                                    <td class="">2017-01-05</td>
+                                    <td>v1.4.103.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.103.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-12-15</td>
+                                    <td>v1.4.094.3</td>
+                                    <td class="talR">
+                                        <a href="#" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.093.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-12-01</td>
+                                    <td>v1.4.083.2</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.074.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-11-03</td>
+                                    <td>v1.4.066.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.065.1</td>
+                                    <td class="">3363M</td>
+                                    <td class="">2016-10-20</td>
+                                    <td>v1.4.059.2</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.056.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-09-22</td>
+                                    <td>v1.4.045.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.044.2</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-09-08</td>
+                                    <td>v1.4.034.3</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.034.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-08-25</td>
+                                    <td>v1.4.026.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.026.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-08-18</td>
+                                    <td>v1.4.124.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.024.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-08-11</td>
+                                    <td>v1.4.016.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.014.1</td>
+                                    <td class="">1860M</td>
+                                    <td class="">2016-07-28</td>
+                                    <td>v1.4.009.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.009.1</td>
+                                    <td class="">382M</td>
+                                    <td class="">2016-07-22</td>
+                                    <td>v1.4.005.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.004.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-07-14</td>
+                                    <td>v1.3.2202.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.36.1</td>
+                                    <td class="">20M</td>
+                                    <td class="">2015-06-27</td>
+                                    <td>v1.3.35.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.35.1</td>
+                                    <td class="">857M</td>
+                                    <td class="">2015-06-26</td>
+                                    <td>v1.3.23.2</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.23.2</td>
+                                    <td class="">986M</td>
+                                    <td class="">2015-06-11</td>
+                                    <td>v1.3.12.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.12.1</td>
+                                    <td class="">288M</td>
+                                    <td class="">2015-05-28</td>
+                                    <td>v1.3.6.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.34.1</td>
+                                    <td class="">1.6M</td>
+                                    <td class="">2015-04-28</td>
+                                    <td>v1.2.23.2</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.23.1</td>
+                                    <td class="">294M</td>
+                                    <td class="">2015-04-09</td>
+                                    <td>v1.2.13</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.0.13</td>
+                                    <td class="">405M</td>
+                                    <td class="">2015-03-26</td>
+                                    <td>v1.2.0.3</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.009.1</td>
+                                    <td class="">382M</td>
+                                    <td class="">2016-07-22</td>
+                                    <td>v1.4.005.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.004.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-07-14</td>
+                                    <td>v1.3.2202.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.36.1</td>
+                                    <td class="">20M</td>
+                                    <td class="">2015-06-27</td>
+                                    <td>v1.3.35.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.35.1</td>
+                                    <td class="">857M</td>
+                                    <td class="">2015-06-26</td>
+                                    <td>v1.3.23.2</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.23.2</td>
+                                    <td class="">986M</td>
+                                    <td class="">2015-06-11</td>
+                                    <td>v1.3.12.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.3.12.1</td>
+                                    <td class="">288M</td>
+                                    <td class="">2015-05-28</td>
+                                    <td>v1.3.6.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.34.1</td>
+                                    <td class="">1.6M</td>
+                                    <td class="">2015-04-28</td>
+                                    <td>v1.2.23.2</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.23.1</td>
+                                    <td class="">294M</td>
+                                    <td class="">2015-04-09</td>
+                                    <td>v1.2.13</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.2.0.13</td>
+                                    <td class="">405M</td>
+                                    <td class="">2015-03-26</td>
+                                    <td>v1.2.0.3</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.5.003.2</td>
+                                    <td class="">1069M</td>
+                                    <td class="">2017-06-22</td>
+                                    <td>v1.4.193.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.173.4</td>
+                                    <td class="">300.4M</td>
+                                    <td class="">2017-05-12</td>
+                                    <td>v1.4.165.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.144.1</td>
+                                    <td class="">1404M</td>
+                                    <td class="">2017-03-16</td>
+                                    <td>v1.4.135.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.133.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2017-02-16</td>
+                                    <td>v1.4.126.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.122.1</td>
+                                    <td class="">3403M</td>
+                                    <td class="">2017-01-17</td>
+                                    <td>v1.4.119.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.113.2</td>
+                                    <td class="">1028M</td>
+                                    <td class="">2017-01-05</td>
+                                    <td>v1.4.103.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.103.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-12-15</td>
+                                    <td>v1.4.094.3</td>
+                                    <td class="talR">
+                                        <a href="#" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.093.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-12-01</td>
+                                    <td>v1.4.083.2</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.074.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-11-03</td>
+                                    <td>v1.4.066.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.065.1</td>
+                                    <td class="">3363M</td>
+                                    <td class="">2016-10-20</td>
+                                    <td>v1.4.059.2</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.056.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-09-22</td>
+                                    <td>v1.4.045.1</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.044.2</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-09-08</td>
+                                    <td>v1.4.034.3</td>
+                                    <td class="talR">
+                                        <a href="" title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.034.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-08-25</td>
+                                    <td>v1.4.026.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="talL">v1.4.026.1</td>
+                                    <td class="">3402M</td>
+                                    <td class="">2016-08-18</td>
+                                    <td>v1.4.124.1</td>
+                                    <td class="talR">
+                                        <a href=""  title="HTTP下载">HTTP下载</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <!--下载补丁结束-->
+
+                        <h3 class="downH3">建议配置</h3>
+                        <div class="downDet">
+                            <table class="tab tab2">
+                             <tbody>
+                            <tr>
+                                    <th class="talL">&nbsp;</th>
+                                    <th>最低配置</th>
+                                    <th class="talR">推荐配置</th>
+                                </tr>
+                            <tr>
+                                <th class="talL">CPU</th>
+                                <td>双核（2GHz）以上</td>
+                                <td class="talR">四核（2GHz）以上</td>
+                            </tr>
+                            <tr>
+                                <th class="talL">内存、硬盘</th>
+                                <td>2G</td>
+                                <td class="talR">4G</td>
+                            </tr>
+                            <tr>
+                                <th class="talL">显卡 </th>
+                                <td>Geforece 7600/Radeon 4650以上</td>
+                                <td class="talR">Geforece 9600/Radeon 3850以上</td>
+                            </tr>
+                            <tr>
+                                <th class="talL">硬盘</th>
+                                <td colspan="2" class="talR">3GB可用硬盘空间及以上</td>
+                            </tr>
+                            <tr>
+                                <th class="talL">DirectX</th>
+                                <td colspan="2" class="talR">DirectX 9.0c</td>
+                            </tr>
+                            <tr>
+                                <th class="talL">至少配置OS环境</th>
+                                <td colspan="2" class="talR">Windows XP</td>
+                            </tr>
+                            <tr>
+                                <th class="talL"> 推荐配置OS环境</th>
+                                <td colspan="2" class="talR">Windows 7以上， 64bit OS</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <!--建议配置结束-->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--底部footer-->
+    <div class="footer_bg">
+        <div id="footer" class="clear pr">
+            <div class="tip">
+                <p class="copyright">
+                    <a href=""  title="腾讯互动娱乐" class="tg">
+                        腾讯互动娱乐
+                    </a>
+                </p>
+                <p class="tip_tt">
+                    温馨提示：玩家已经离场，请不要打扰，白白
+                </p>
+                <p>
+                    <span>抵制不良游戏</span>
+                    <span>拒绝盗版游戏</span>
+                    <span>注意自我保护</span>
+                    <span>谨防受骗上当</span>
+                    <span>适度游戏益脑</span>
+                    <span>沉迷游戏伤身</span>
+                    <span>合理安排时间</span>
+                    <span>享受健康生活</span>
+                </p>
+            </div>
+            <div class="infor">
+                <p>
+                    <a href="" >腾讯互动娱乐</a>
+                    <span>|</span>
+                    <a href="">服务条款</a>
+                    <span>|</span>
+                    <a href="" >广告服务</a>
+                    <span>|</span>
+                    <a href="">腾讯游戏招聘</a>
+                    <span>|</span>
+                    <a href="">腾讯游戏客服</a>
+                    <span>|</span>
+                    <a href="">商务合作</a>
+                    <span>|</span>
+                    <a href="">游戏地图</a>
+                    <span>|</span>
+                    <a href="">游戏活动</a>
+                    <span>|</span>
+                    <a href="">腾讯网</a>
+                    <span>|</span>
+                    <a href="">网站导航</a>
+                </p>
+                <p class="e">COPYRIGHT © 1998 – 2017 TENCENT. ALL RIGHTS RESERVED.</p>
+                <p class="e">COPYRIGHT © ALL-M CO., LTD. ALL RIGHTS RESERVED.</p>
+                <p class="rr">
+                    <a href="">本网页已经阻止粘贴复制</a>
+                </p>
+                <p class="">
+                    <em>出版物号：ISBN 978-7-89989-868-0</em>
+                    |<em>文化部备案号 [2310]32号</em>
+                    |<a href="">粤网文[2016]0633-233号</a>
+                    |<a href="">新出网证（粤）字010号</a>
+                </p>
+                <p>
+                    <em>文网游进字[2017]0003号</em>
+                    |<em>批准文号：新出审字[2017]1676号</em>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<a href="#" id="gotop" class="gotop sp">返回</a>
+</body>
+<script src="js/move.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/com.js"></script>
+</html>

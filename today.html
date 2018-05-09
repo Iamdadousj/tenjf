@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html"  charset="UTF-8"/>
+    <meta charset="UTF-8" content="text/html" />
+    <title>疾风之刃-官方网站-腾讯游戏</title>
+    <link rel="icon" href="images/favico/favicon.ico" sizes="32x32" type="image/ico">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body,html{
+            font-size: 20px;
+            font-family:sans-serif;
+        }
+        button{
+            width:100px;
+            height: 30px;
+            background: #ff0000;
+            margin:10px 0;
+            font-size: 18px;
+            color: #fff;
+            display: inline-block;
+            border:1px solid #00a7ea;
+        }
+        #shuchu {
+            display: block;
+            margin-top: 10px;
+            width: 190px;
+            height: 60px;
+            text-align: center;
+            position: absolute;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    var Pa = "小伟,阿龙,嘻嘻,六子,QQ,啊辽,小廖,露露,嗄二,八号,乐乐";
+    var arr = Pa.split(",",11);//11控制获取数量
+    var num = arr.length-1 ;
+    var timer;
+    function change()
+    {
+        document.getElementById("click").innerHTML = arr[GetRnd(0,num)];
+    }
+    function start(){
+        clearInterval(timer);
+        timer = setInterval('change()',100);
+    }
+    function stop(){
+        clearInterval(timer);
+        document.getElementById("shuchu").value=document.getElementById("click").innerText;
+    }
+    function GetRnd(min,max){
+        return parseInt(Math.random()*(max-min+1));
+    }
+</script>
+<div style="text-align: center;position: relative;width: 200px;height: 400px;margin:60px auto">
+    <div id="click" name="click" >请单击开始</div>
+    <button onclick="start()" accesskey="s">开始</button>
+    <button onclick="stop()" accesskey="o">停止</button>
+    <br>
+    <div style="height: 100px">您的选择是：<input type="text" id="shuchu" value="花落谁家"/></div>
+</div>
+</body>
+</html>

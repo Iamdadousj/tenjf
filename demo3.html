@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎你，请先登陆！</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 微软雅黑;
+            font-size: 12px;
+        }
+        .box{
+            width: 390px;
+            height: 320px;
+            border: solid 1px #ddd;
+            background: #FFF;
+            position: absolute;
+            left: 50%;
+            top:42%;
+            margin-left: -195px;
+            margin-top: -160px;
+            text-align: center;
+        }
+        .box h2{
+            font-weight: normal;
+            color:#666;
+            font-size: 16px;
+            line-height: 40px;
+            overflow: hidden;
+            text-align: center;
+            border-bottom: solid 1px #ddd;
+            background: #f7f7f7;
+        }
+        .input_box{
+            width:350px;
+            padding-bottom: 15px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>登陆</h2>
+
+    <div class="input_box">
+        <input id="uname" type="text" name="user" placeholder="请输入用户名">
+    </div>
+    <div class="input_box">
+        <input id="upass" type="password" name="psw" placeholder="请输入密码">
+    </div>
+    <div id="error_box"><br></div>
+    <div class="input_box">
+        <button type="button" class="btn btn-primary" onclick="fnLogin()">登陆</button>
+        <a href="regist.html"><input type="button" class="btn btn-info" name="regist" value="注册"></a>
+    </div>
+</div>
+<script>
+    function fnLogin() {
+        var oUname = document.getElementById("uname")
+        var oUpass = document.getElementById("upass")
+        var oError = document.getElementById("error_box")
+        var isError = true;
+        if (oUname.value.length > 20 || oUname.value.length < 6) {
+            oError.innerHTML = "用户名请输入6-20位字符";
+            isError = false;
+            return;
+        }else if((oUname.value.charCodeAt(0)>=48) && (oUname.value.charCodeAt(0)<=57)){
+            oError.innerHTML = "首字符必须为字母";
+            return;
+        }else for(var i=0;i<oUname.value.charCodeAt(i);i++){
+            if((oUname.value.charCodeAt(i)<48)||(oUname.value.charCodeAt(i)>57) && (oUname.value.charCodeAt(i)<97)||(oUname.value.charCodeAt(i)>122)){
+                oError.innerHTML = "必须为字母跟数字组成";
+                return;
+            }
+        }
+
+        if (oUpass.value.length > 20 || oUpass.value.length < 6) {
+            oError.innerHTML = "密码请输入6-20位字符"
+            isError = false;
+            return;
+        }
+        window.alert("登录成功")
+    }
+
+</script>
+</body>
+</html>
